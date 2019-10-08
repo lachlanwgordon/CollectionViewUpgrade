@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using Xamarin.UITest;
 
@@ -50,7 +52,6 @@ namespace CollectionViewUpgrade.UITests
             {
                 //app.Repl();
                 app.WaitForElement("Add");
-                var itemsAtStart = app.Query(x => x.Marked("ItemsList").Child());
                 app.Tap("Add");
                 //app.Repl();
 
@@ -66,10 +67,25 @@ namespace CollectionViewUpgrade.UITests
                 app.Tap("Save");
                 app.WaitForElement("Test item2");
 
-                var itemsAfterAdding = app.Query(x => x.Marked("ItemsList").Child());
                 var item = app.Query(x => x.Marked($"New item {newGuid}"));
 
                 Assert.Greater(item.Length, 0);
+
+            }
+
+
+            //https://codetraveler.io/2019/10/03/xamarin-uitest-determine-if-xamarin-forms-listview-is-refreshing/ //MIT
+            [Test]
+            public async Task PullToRefresh()
+            {
+                app.WaitForElement("First item");
+
+                app.DragCoordinates(100, 100, 100, 400);
+                app.WaitForNoElement("FirstItem");
+
+                app.WaitForElement("First item");
+                var firstItemReturned = app.Query(x => x.Marked("First item")).Any();
+                Assert.True(firstItemReturned);
 
             }
 

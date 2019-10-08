@@ -39,6 +39,7 @@ namespace CollectionViewUpgrade.ViewModels
             try
             {
                 Items.Clear();
+                await Task.Delay(2000);
                 var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
