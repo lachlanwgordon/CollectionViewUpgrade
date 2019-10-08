@@ -16,7 +16,7 @@
                      IsRefreshing="{Binding IsBusy, Mode=OneWay}">
             <CollectionView x:Name="ItemsListView"
                             AutomationId="ItemsList"
-                            ItemsSource="{Binding Items}"
+                            ItemsSource="{Binding Items}" 
                             VerticalOptions="FillAndExpand"
                             SelectionMode="Single"
                             SelectionChanged="OnItemSelected">
@@ -32,18 +32,27 @@
                 </d:CollectionView.ItemsSource>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10">
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="1" />
+                            </Grid.RowDefinitions>
                             <Label Text="{Binding Text}"
-                                    d:Text="{Binding .}"
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemTextStyle}"
-                                    FontSize="16" />
-                            <Label Text="{Binding Description}"
-                                    d:Text="Item description"
-                                    LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    FontSize="13" />
-                        </StackLayout>
+                                   d:Text="{Binding .}"
+                                   LineBreakMode="NoWrap"
+                                   Style="{DynamicResource ListItemTextStyle}"
+                                   FontSize="16" />
+                            <Label Grid.Row="1"
+                                   Text="{Binding Description}"
+                                   d:Text="Item description"
+                                   LineBreakMode="NoWrap"
+                                   Style="{DynamicResource ListItemDetailTextStyle}"
+                                   FontSize="13" />
+                            <BoxView Grid.Row="2"
+                                     Margin="10,0,0,0"
+                                     BackgroundColor="DarkGray" />
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
