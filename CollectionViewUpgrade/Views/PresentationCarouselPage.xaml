@@ -1,0 +1,5 @@
+<ContentPage xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns="http://xamarin.com/schemas/2014/forms" x:Class="CollectionViewUpgrade.Views.PresentationCarouselPage" xmlns:viewModels="clr-namespace:CollectionViewUpgrade.ViewModels">
+  <ContentPage.BindingContext>
+    <viewModels:PresentationCarouselViewModel x:Key="ViewModel"/>
+  </ContentPage.BindingContext>
+</ContentPage>
