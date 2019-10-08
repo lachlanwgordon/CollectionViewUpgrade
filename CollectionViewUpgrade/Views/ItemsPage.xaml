@@ -13,6 +13,7 @@
     </ContentPage.ToolbarItems>
     <StackLayout>
         <ListView x:Name="ItemsListView"
+                  AutomationId="ItemsList"
                   ItemsSource="{Binding Items}"
                   VerticalOptions="FillAndExpand"
                   HasUnevenRows="true"

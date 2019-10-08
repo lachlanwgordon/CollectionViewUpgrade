@@ -60,12 +60,6 @@
                 ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
         <Tab
-            Title="Collection"
-            Icon="tab_feed.png">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:CollectionPage}" />
-        </Tab>
-        <Tab
             Title="About"
             Icon="tab_about.png">
             <ShellContent

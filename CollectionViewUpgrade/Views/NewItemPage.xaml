@@ -24,6 +24,7 @@
                 FontSize="Medium" />
             <Entry
                 Text="{Binding Item.Text}"
+                AutomationId="NameEntry"
                 d:Text="Item name"
                 FontSize="Small" />
             <Label
@@ -31,6 +32,7 @@
                 FontSize="Medium" />
             <Editor
                 Text="{Binding Item.Description}"
+                AutomationId="DescriptionEditor"
                 d:Text="Item description"
                 FontSize="Small"
                 Margin="0" />
