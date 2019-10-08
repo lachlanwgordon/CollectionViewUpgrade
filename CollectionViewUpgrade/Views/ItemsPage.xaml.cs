@@ -27,10 +27,11 @@ namespace CollectionViewUpgrade.Views
             BindingContext = viewModel = new ItemsViewModel();
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
+        async void OnItemSelected(object sender, SelectionChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
-            if (item == null)
+            if (!args.CurrentSelection.Any())
+                return;
+            if (!(args.CurrentSelection[0] is Item item))
                 return;
 
             await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
