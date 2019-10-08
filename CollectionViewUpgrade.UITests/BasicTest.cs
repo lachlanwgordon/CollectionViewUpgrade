@@ -76,7 +76,7 @@ namespace CollectionViewUpgrade.UITests
 
             //https://codetraveler.io/2019/10/03/xamarin-uitest-determine-if-xamarin-forms-listview-is-refreshing/ //MIT
             [Test]
-            public async Task PullToRefresh()
+            public void PullToRefresh()
             {
                 app.WaitForElement("First item");
 
@@ -86,6 +86,16 @@ namespace CollectionViewUpgrade.UITests
                 app.WaitForElement("First item");
                 var firstItemReturned = app.Query(x => x.Marked("First item")).Any();
                 Assert.True(firstItemReturned);
+
+            }
+
+            [Test]
+            public void ViewItemDetails()
+            {
+                app.WaitForElement("First item");
+                app.Tap("First item");
+                var descriptionFieldVisible = app.Query(x => x.Marked("Description:")).Any();
+                Assert.True(descriptionFieldVisible);
 
             }
 
