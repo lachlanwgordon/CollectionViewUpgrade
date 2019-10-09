@@ -54,6 +54,12 @@
     <!-- Your Pages -->
     <TabBar>
         <Tab
+            Title="Presentation"
+            Icon="tab_about.png">
+            <ShellContent
+                ContentTemplate="{DataTemplate local:PresentationCarouselPage}" />
+        </Tab>
+        <Tab
             Title="List"
             Icon="tab_feed.png">
             <ShellContent

@@ -16,11 +16,10 @@
                      IsRefreshing="{Binding IsBusy, Mode=OneWay}">
             <CollectionView x:Name="ItemsListView"
                             AutomationId="ItemsList"
-                            ItemsSource="{Binding Items}" 
                             VerticalOptions="FillAndExpand"
                             SelectionMode="Single"
                             SelectionChanged="OnItemSelected">
-                <d:CollectionView.ItemsSource>
+                <CollectionView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>First Item</x:String>
                         <x:String>Second Item</x:String>
@@ -29,7 +28,7 @@
                         <x:String>Fifth Item</x:String>
                         <x:String>Sixth Item</x:String>
                     </x:Array>
-                </d:CollectionView.ItemsSource>
+                </CollectionView.ItemsSource>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10">
@@ -38,8 +37,8 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="1" />
                             </Grid.RowDefinitions>
-                            <Label Text="{Binding Text}"
-                                   d:Text="{Binding .}"
+                            <Label 
+                                   Text="{Binding .}"
                                    LineBreakMode="NoWrap"
                                    Style="{DynamicResource ListItemTextStyle}"
                                    FontSize="16" />

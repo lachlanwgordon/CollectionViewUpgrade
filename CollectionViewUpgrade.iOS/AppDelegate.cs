@@ -24,6 +24,7 @@ namespace CollectionViewUpgrade.iOS
         {
             Xamarin.Calabash.Start();
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+            global::Xamarin.Forms.FormsMaterial.Init();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
