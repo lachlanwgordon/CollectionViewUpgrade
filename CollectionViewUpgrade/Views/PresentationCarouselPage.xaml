@@ -163,7 +163,8 @@
                                HorizontalTextAlignment="Center" />
                         <RefreshView Grid.Row="1">
 
-                            <CollectionView ItemsSource="{Binding Points}">
+                            <CollectionView ItemsSource="{Binding Points}"
+                                            >
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
                                         <Grid RowSpacing="0">
