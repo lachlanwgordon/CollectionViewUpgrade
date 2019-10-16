@@ -67,6 +67,7 @@
                             </models:Slide>
 
                             <models:Slide Title="Collection View"
+                                          Image=""
                                           SlideType="Points">
                                 <models:Slide.Points>
                                     <x:Array Type="{x:Type x:String}">
@@ -75,11 +76,28 @@
                                         <x:String>• HorizontalScrolling</x:String>
                                         <x:String>• Muiltiple Columns/Rows</x:String>
                                         <x:String>• Could replace Tinder(CarouselView)</x:String>
+                                        <x:String>• EmptyView</x:String>
+
                                         <x:String>• Can't do Context Actions(Yet!)</x:String>
                                         <x:String>• No more Cells</x:String>
                                     </x:Array>
                                 </models:Slide.Points>
                             </models:Slide>
+
+                             <models:Slide Title="RefreshView View"
+                                           Image="https://picsum.photos/220/300"
+                                          SlideType="Points">
+                                <models:Slide.Points>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String> • CollectionView Doesn't have pull refresh</x:String>
+                                        <x:String> • But RefreshView Does</x:String>
+                                        <x:String> • You Can Now Refresh Anything</x:String>
+                                        
+                                    </x:Array>
+                                </models:Slide.Points>
+                            </models:Slide>
+
+
 
                             <models:Slide Title="CollectionView"
                                           SlideType="Comparison"
@@ -197,7 +215,7 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                         <CollectionView.ItemsLayout>
-                            <GridItemsLayout Span="3"
+                            <GridItemsLayout Span="4"
                                              HorizontalItemSpacing="5"
                                              VerticalItemSpacing="5"
                                              Orientation="Vertical"></GridItemsLayout>
@@ -205,8 +223,8 @@
                         <CollectionView.ItemsSource>
                             <x:Array Type="{x:Type x:Object}">
                                 <models:Item Height="100"
-                                             Text="Photo in a grid"
-                                             Url="https://picsum.photos/220/300" />
+                                             Text="Photo in sadffsd"
+                                             Url="https://picsum.photos/270/300" />
                                 <models:Item Height="300"
                                              Text="More Photo in a grid"
                                              Url="https://picsum.photos/210/300" />
@@ -251,7 +269,7 @@
                                              Url="https://picsum.photos/220/310" />
                                 <models:Item Height="400"
                                              Text="Photo in a grid"
-                                             Url="https://picsum.photos/230/408" />
+                                             Url="https://picsum.photos/230/428" />
 
                             </x:Array>
                         </CollectionView.ItemsSource>
@@ -426,6 +444,14 @@
                            Grid.Row="1"
                            FontSize="Subtitle"
                            HorizontalTextAlignment="Center" />
+                    <RefreshView Grid.Row="2"
+                                 IsEnabled="True"
+                              Grid.Column="1">
+                        <ScrollView>
+                    <Image  Source="{Binding Image}"/>
+
+                        </ScrollView>
+                    </RefreshView>
                     <ListView SeparatorColor="Black"
                               BackgroundColor="White"
                               IsVisible="{Binding IsThingVisible}"

@@ -53,7 +53,7 @@
 
         </Tab>
 
-         <Tab Title="ListViewDemo"
+        <Tab Title="ListViewDemo"
              Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:ListViewPage}" />
 
@@ -63,7 +63,7 @@
 
         </Tab>
 
-        
+
 
         <!--<Tab Title="Grid">
             <ContentPage>
@@ -118,7 +118,7 @@
             </ContentPage>
         </Tab>-->
 
-        <Tab Title="Carousel"
+        <Tab Title="Collection"
              Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
@@ -145,7 +145,7 @@
                                Grid.Row="1"
                                Style="{StaticResource SubtitleStyle}"
                                HorizontalTextAlignment="Center" />
-                        <RefreshView Grid.Row="2">
+                        <RefreshView  Grid.Row="2">
 
                             <ScrollView>
 
@@ -192,9 +192,11 @@
                                     <BindableLayout.ItemTemplate>
                                         <DataTemplate>
                                             <StackLayout HeightRequest="300">
-                                                <Label Text="{Binding Text}" Style="{StaticResource MiniHeadingStyle}"/>
-                                                <CollectionView 
-                                                               >
+                                                <Label Text="{Binding Text}"
+                                                       Style="{StaticResource MiniHeadingStyle}" />
+                                                <CollectionView
+                                                    SelectionMode="Multiple"
+                                                    >
                                                     <CollectionView.ItemsLayout>
                                                         <LinearItemsLayout Orientation="Horizontal" />
                                                     </CollectionView.ItemsLayout>

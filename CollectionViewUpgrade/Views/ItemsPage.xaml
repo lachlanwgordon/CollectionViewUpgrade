@@ -19,6 +19,16 @@
                             VerticalOptions="FillAndExpand"
                             SelectionMode="Single"
                             SelectionChanged="OnItemSelected">
+                <CollectionView.Header>
+                    <Grid>
+                        <Label Text="Header"/>
+                    </Grid>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <Grid>
+                        <Label Text="Footer"/>
+                    </Grid>
+                </CollectionView.Footer>
                 <CollectionView.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
                         <x:String>First Item</x:String>
@@ -29,6 +39,11 @@
                         <x:String>Sixth Item</x:String>
                     </x:Array>
                 </CollectionView.ItemsSource>
+                <CollectionView.EmptyView>
+                    <Grid>
+                        <Label Text="Help me"/>
+                    </Grid>
+                </CollectionView.EmptyView>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10">
