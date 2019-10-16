@@ -20,6 +20,16 @@ namespace CollectionViewUpgrade.iOS
         //
         // You have 17 seconds to return from this method, or iOS will terminate your application.
         //
+
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="options"></param>
+        /// <returns></returns>
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             Xamarin.Calabash.Start();
@@ -27,7 +37,6 @@ namespace CollectionViewUpgrade.iOS
             global::Xamarin.Forms.FormsMaterial.Init();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
             return base.FinishedLaunching(app, options);
         }
     }

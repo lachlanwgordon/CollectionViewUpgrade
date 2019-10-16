@@ -11,6 +11,8 @@ namespace CollectionViewUpgrade.Converters
         public DataTemplate TitleTemplate { get; set; }
         public DataTemplate PointsTemplate { get; set; }
         public DataTemplate ListTemplate { get; set; }
+        public DataTemplate GridTemplate { get; set; }
+        public DataTemplate ComparisonTemplate { get; set; }
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
         {
@@ -27,9 +29,22 @@ namespace CollectionViewUpgrade.Converters
                         return PointsTemplate;
                     case SlideType.HorizontalCollection:
                         return HorizontalCollectionTemplate;
+                    case SlideType.Comparison:
+                        return ComparisonTemplate;
+                    case SlideType.Grid:
+                        return GridTemplate;
                 }
             }
             return ListTemplate;
         }
+    }
+    public enum SlideType
+    {
+        Title,
+        Points,
+        List,
+        HorizontalCollection,
+        Comparison,
+        Grid
     }
 }

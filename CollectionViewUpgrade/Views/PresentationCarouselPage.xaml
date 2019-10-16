@@ -1,170 +1,405 @@
 <ContentPage xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns="http://xamarin.com/schemas/2014/forms"
              x:Class="CollectionViewUpgrade.Views.PresentationCarouselPage"
-             BackgroundColor="Green"
              Shell.NavBarIsVisible="False"
              xmlns:models="clr-namespace:CollectionViewUpgrade.Models"
              xmlns:converters="clr-namespace:CollectionViewUpgrade.Converters"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="False"
+             BackgroundColor="White"
              xmlns:viewModels="clr-namespace:CollectionViewUpgrade.ViewModels">
+
     <ContentPage.Content>
-        <Grid>
-            <CarouselView Margin="10"
-                          ItemTemplate="{StaticResource slideDataTemplateSelector}">
-                <CarouselView.ItemsSource>
-                    <x:Array Type="{x:Type x:Object}">
+        <yummy:PancakeView BackgroundGradientStartColor="#0a2f9f"
+                           BackgroundGradientEndColor="#a458ff"
+                           BackgroundGradientAngle="225">
+            <Grid>
+                <!--<Label Text="Title"
+                       Style="{StaticResource TitleStyle}"
+                       TextColor="Wheat"
+                       />-->
+                <CarouselView Margin="0,40,0,120"
+                              x:Name="TheCarousel"
+                              ItemTemplate="{StaticResource slideDataTemplateSelector}">
+                    <CarouselView.ItemsSource>
+                        <x:Array Type="{x:Type x:Object}">
+                            <models:Slide Title="CollectionView, CarouselView and RefreshView"
+                                          SlideType="Title"
+                                          SubTitle="Out with the old, in with the View" />
 
+                            <models:Slide Title="ListView"
+                                          SlideType="Points">
+                                <models:Slide.Points>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String> • In the beginning there was ListView</x:String>
+                                        <x:String>  </x:String>
+                                        <x:String> • And it was good and we loved it </x:String>
+                                        <x:String>  </x:String>
+                                        <x:String> .... </x:String>
+                                        <x:String>  </x:String>
+                                        <x:String>  </x:String>
+                                        <x:String>.......But.......</x:String>
+                                        <x:String></x:String>
+                                        <x:String></x:String>
+                                        <x:String></x:String>
+                                        <x:String></x:String>
+                                        <x:String> • it could only do vertical</x:String>
+                                        <x:String> • It couldn't do multiple columns</x:String>
+                                        <x:String> • Some things only work with one CachingStrategy</x:String>
+                                        <x:String> • some times it would crash on every XF Update</x:String>
+                                        <x:String> • sometimes it was slow</x:String>
+                                        <x:String></x:String>
+                                        <x:String>So we all also kinda hated it</x:String>
 
-                        <models:Slide Title="Horizontal Collection"
-                                      SubTitle="Test SubTitle"
-                                      Paragraph1="Hello"
-                                      Paragraph2="GoodBye"
-                                      SlideType="HorizontalCollection"
-                                      Image="https://lorempixel.com/402/201/">
-                            <models:Slide.Points>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>In the beginning there was ListView, and it was good</x:String>
-                                    <x:String>We all loved it...</x:String>
-                                    <x:String></x:String>
-                                    <x:String>.......But...</x:String>
-                                    <x:String></x:String>
-                                    <x:String>it could only do vertical</x:String>
-                                    <x:String>It couldn't do multiple columns</x:String>
-                                    <x:String>Some things only work with one CachingStrategy</x:String>
-                                    <x:String>some times it would crash on every XF Update</x:String>
-                                    <x:String>sometimes it was slow</x:String>
-                                    <x:String></x:String>
-                                    <x:String>So we all also kinda hated it</x:String>
+                                    </x:Array>
+                                </models:Slide.Points>
+                            </models:Slide>
 
-                                </x:Array>
-                            </models:Slide.Points>
-                        </models:Slide>
+                            <models:Slide Title="Collection View"
+                                          Image=""
+                                          SlideType="Points">
+                                <models:Slide.Points>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String> •vbhk CollectionView replaces ListView </x:String>
+                                        <x:String> • ListView won't be deprecated </x:String>
+                                        <x:String> • HorizontalScrolling </x:String>
+                                        <x:String> • Muiltiple Columns/Rows </x:String>
+                                        <x:String> • Could replace Tinder(CarouselView)</x:String>
+                                        <x:String> • </x:String>
+                                        <x:String> .... </x:String>
+                                        <x:String>  </x:String>
+                                        <x:String>  </x:String>
+                                        <x:String>.......But.......</x:String>
+                                        <x:String></x:String>
+                                        <x:String></x:String>
+                                        <x:String></x:String>
+                                        <x:String></x:String>
+                                        <x:String> • it could only do vertical</x:String>
+                                        <x:String> • It couldn't do multiple columns</x:String>
+                                        <x:String> • Some things only work with one CachingStrategy</x:String>
+                                        <x:String> • some times it would crash on every XF Update</x:String>
+                                        <x:String> • sometimes it was slow</x:String>
+                                        <x:String></x:String>
+                                        <x:String>So we all also kinda hated it</x:String>
 
-
-
-                        <models:Slide Title="ListView"
-                                      SlideType="Points"
-                                      SubTitle="Test SubTitle"
-                                      Image="https://lorempixel.com/402/200/">
-                            <models:Slide.Points>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>In the beginning there was ListView, and it was good</x:String>
-                                    <x:String>We all loved it...</x:String>
-                                    <x:String></x:String>
-                                    <x:String>.......But...</x:String>
-                                    <x:String></x:String>
-                                    <x:String>it could only do vertical</x:String>
-                                    <x:String>It couldn't do multiple columns</x:String>
-                                    <x:String>Some things only work with one CachingStrategy</x:String>
-                                    <x:String>some times it would crash on every XF Update</x:String>
-                                    <x:String>sometimes it was slow</x:String>
-                                    <x:String></x:String>
-                                    <x:String>So we all also kinda hated it</x:String>
-
-                                </x:Array>
-                            </models:Slide.Points>
-                        </models:Slide>
-
-
-                        <models:Slide Title="CollectionView and CarouselView"
-                                      SlideType="Title"
-                                      SubTitle="Out with the old, in with the View" />
-
-
-                        <models:Slide Title="CollectionView"
-                                      SlideType="List"
-                                      SubTitle="ListView"
-                                      Paragraph1="Hello"
-                                      Paragraph2="GoodBye"
-                                      Image="https://lorempixel.com/402/201/">
-                            <models:Slide.Points>
-                                <x:Array Type="{x:Type x:String}">
-                                    <x:String>Each</x:String>
-                                    <x:String>Of</x:String>
-                                    <x:String>These</x:String>
-                                    <x:String>Items</x:String>
-                                    <x:String>Are</x:String>
-                                    <x:String>In</x:String>
-                                    <x:String>An</x:String>
-                                    <x:String>Array</x:String>
-                                    <x:String>Which</x:String>
-                                    <x:String>Is</x:String>
-                                    <x:String>Bound</x:String>
-                                    <x:String>To</x:String>
-                                    <x:String>Each</x:String>
-                                    <x:String>View</x:String>
-                                </x:Array>
-                            </models:Slide.Points>
-
-                        </models:Slide>
+                                    </x:Array>
+                                </models:Slide.Points>
+                            </models:Slide>
 
 
 
+                            <models:Slide Title="Horizontal Collection"
+                                          SubTitle="Test SubTitle"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          SlideType="HorizontalCollection"
+                                          Image="https://lorempixel.com/402/201/">
+                                <models:Slide.Points>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>In the beginning there was ListView, and it was good</x:String>
+                                        <x:String>We all loved it...</x:String>
+                                        <x:String></x:String>
+                                        <x:String>.......But...</x:String>
+                                        <x:String></x:String>
+                                        <x:String>it could only do vertical</x:String>
+                                        <x:String>It couldn't do multiple columns</x:String>
+                                        <x:String>Some things only work with one CachingStrategy</x:String>
+                                        <x:String>some times it would crash on every XF Update</x:String>
+                                        <x:String>sometimes it was slow</x:String>
+                                        <x:String></x:String>
+                                        <x:String>So we all also kinda hated it</x:String>
 
-                        <models:Slide Title="Test Title"
-                                      SubTitle="Test SubTitle"
-                                      Paragraph1="Hello"
-                                      Paragraph2="GoodBye"
-                                      Image="https://lorempixel.com/402/201/" />
-                        <models:Slide Title="Test Title"
-                                      SubTitle="Test SubTitle"
-                                      Paragraph1="Hello"
-                                      Paragraph2="GoodBye"
-                                      Image="https://lorempixel.com/402/201/" />
-                        <models:Slide Title="Test Title"
-                                      SubTitle="Test SubTitle"
-                                      Paragraph1="Hello"
-                                      Paragraph2="GoodBye"
-                                      Image="https://lorempixel.com/402/201/" />
-                        <models:Slide Title="Test Title"
-                                      SubTitle="Test SubTitle"
-                                      Paragraph1="Hello"
-                                      Paragraph2="GoodBye"
-                                      Image="https://lorempixel.com/402/201/" />
-                        <models:Slide Title="Test Title"
-                                      SubTitle="Test SubTitle"
-                                      Paragraph1="Hello"
-                                      Paragraph2="GoodBye"
-                                      Image="https://lorempixel.com/402/201/" />
-                        <models:Slide Title="Test Title"
-                                      SubTitle="Test SubTitle"
-                                      Paragraph1="Hello"
-                                      Paragraph2="GoodBye"
-                                      Image="https://lorempixel.com/402/201/" />
-                    </x:Array>
-                </CarouselView.ItemsSource>
+                                    </x:Array>
+                                </models:Slide.Points>
+                            </models:Slide>
 
-            </CarouselView>
-        </Grid>
+                            <models:Slide Title="Grid Collection"
+                                          SubTitle="Test SubTitle"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          SlideType="Grid"
+                                          Image="https://lorempixel.com/402/201/">
+                                <models:Slide.Points>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>In the beginning there was ListView, and it was good</x:String>
+                                        <x:String>We all loved it...</x:String>
+                                        <x:String></x:String>
+                                        <x:String>.......But...</x:String>
+                                        <x:String></x:String>
+                                        <x:String>it could only do vertical</x:String>
+                                        <x:String>It couldn't do multiple columns</x:String>
+                                        <x:String>Some things only work with one CachingStrategy</x:String>
+                                        <x:String>some times it would crash on every XF Update</x:String>
+                                        <x:String>sometimes it was slow</x:String>
+                                        <x:String></x:String>
+                                        <x:String>So we all also kinda hated it</x:String>
+
+                                    </x:Array>
+                                </models:Slide.Points>
+                            </models:Slide>
+
+
+
+
+
+
+
+                            <models:Slide Title="CollectionView"
+                                          SlideType="List"
+                                          SubTitle="ListView"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          Image="https://lorempixel.com/402/201/">
+                                <models:Slide.Points>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Each</x:String>
+                                        <x:String>Of</x:String>
+                                        <x:String>These</x:String>
+                                        <x:String>Items</x:String>
+                                        <x:String>Are</x:String>
+                                        <x:String>In</x:String>
+                                        <x:String>An</x:String>
+                                        <x:String>Array</x:String>
+                                        <x:String>Which</x:String>
+                                        <x:String>Is</x:String>
+                                        <x:String>Bound</x:String>
+                                        <x:String>To</x:String>
+                                        <x:String>Each</x:String>
+                                        <x:String>View</x:String>
+                                    </x:Array>
+                                </models:Slide.Points>
+
+                            </models:Slide>
+
+
+
+
+                            <models:Slide Title="Test Title"
+                                          SubTitle="Test SubTitle"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          Image="https://lorempixel.com/402/201/" />
+                            <models:Slide Title="Test Title"
+                                          SubTitle="Test SubTitle"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          Image="https://lorempixel.com/402/201/" />
+                            <models:Slide Title="Test Title"
+                                          SubTitle="Test SubTitle"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          Image="https://lorempixel.com/402/201/" />
+                            <models:Slide Title="Test Title"
+                                          SubTitle="Test SubTitle"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          Image="https://lorempixel.com/402/201/" />
+                            <models:Slide Title="Test Title"
+                                          SubTitle="Test SubTitle"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          Image="https://lorempixel.com/402/201/" />
+                            <models:Slide Title="Test Title"
+                                          SubTitle="Test SubTitle"
+                                          Paragraph1="Hello"
+                                          Paragraph2="GoodBye"
+                                          Image="https://lorempixel.com/402/201/" />
+                        </x:Array>
+                    </CarouselView.ItemsSource>
+
+                </CarouselView>
+                <ImageButton Source="logo"
+                             x:Name="logo"
+                             BackgroundColor="Transparent"
+                             Clicked="LogoClicked"
+                             VerticalOptions="End"
+                             HorizontalOptions="End"
+                             Margin="0,0,0,50"
+                             WidthRequest="70"
+                             HeightRequest="70" />
+            </Grid>
+        </yummy:PancakeView>
     </ContentPage.Content>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <DataTemplate x:Key="listTemplate">
-                <Frame Visual="Material"
-                       Margin="20"
-                       CornerRadius="20"
-                       HasShadow="True">
-                    <Grid Margin="5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Text="{Binding Title}"
-                               FontSize="Subtitle"
-                               HorizontalTextAlignment="Center" />
-                        <Label Text="{Binding SubTitle}"
-                               Grid.Column="1"
-                               FontSize="Subtitle"
-                               HorizontalTextAlignment="Center" />
-                        <RefreshView Grid.Row="1">
+            <DataTemplate x:Key="gridTemplate">
+                <Grid>
+                    <CollectionView ItemSizingStrategy="MeasureAllItems">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HeightRequest="{Binding Height}"
+                                      WidthRequest="100">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Row="1"
+                                        Text="{Binding Text}" />
+                                    
+                                    <Image 
+                                           Source="{Binding Url}" />
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Span="2"
+                                             Orientation="Vertical"></GridItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemsSource>
+                            <x:Array Type="{x:Type x:Object}">
+                                <models:Item
+                                    Height="100"
+                                    Text="Photo in a grid"
+                                    Url="https://picsum.photos/220/300"
+                                    />
+                                <models:Item
+                                    Height="300"
+                                    Text="More Photo in a grid"
+                                    Url="https://picsum.photos/210/300"
+                                    />
+                                <models:Item
+                                    Height="100"
+                                    Url="https://picsum.photos/20/30"
+                                    />
+                                <models:Item
+                                    Height="400"
+                                    Url="https://picsum.photos/230/40"
+                                    />
+                                <models:Item
+                                    Height="100"
+                                    Url="https://picsum.photos/220/300"
+                                    />
+                                <models:Item
+                                    Height="300"
+                                    Url="https://picsum.photos/210/300"
+                                    />
+                                <models:Item
+                                    Height="100"
+                                    Url="https://picsum.photos/20/30"
+                                    />
+                                <models:Item
+                                    Height="400"
+                                    Url="https://picsum.photos/230/40"
+                                    />
+                                <models:Item
+                                    Height="700"
+                                    Url="https://picsum.photos/220/300"
+                                    />
+                                <models:Item
+                                    Height="200"
+                                    Url="https://picsum.photos/210/300"
+                                    />
+                                <models:Item
+                                    Height="100"
+                                    Url="https://picsum.photos/20/30"
+                                    />
+                                <models:Item
+                                    Height="400"
+                                    Url="https://picsum.photos/230/40"
+                                    />
+                                <models:Item
+                                    Height="700"
+                                    Url="https://picsum.photos/220/300"
+                                    />
+                                <models:Item
+                                    Height="200"
+                                    Url="https://picsum.photos/210/300"
+                                    />
+                                <models:Item
+                                    Height="100"
+                                    Url="https://picsum.photos/20/30"
+                                    />
+                                <models:Item
+                                    Height="400"
+                                    Url="https://picsum.photos/230/40"
+                                    />
 
-                            <CollectionView ItemsSource="{Binding Points}">
-                                <CollectionView.ItemTemplate>
+                            </x:Array>
+                        </CollectionView.ItemsSource>
+
+                    </CollectionView>
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="comparisonTemplate">
+
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Title}"
+                           FontSize="Subtitle"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding SubTitle}"
+                           Grid.Column="1"
+                           FontSize="Subtitle"
+                           HorizontalTextAlignment="Center" />
+                    <RefreshView Grid.Row="1">
+
+                        <CollectionView ItemsSource="{Binding Points}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding .}"
+                                               FontSize="Large" />
+                                        <Image Source="https://lorempixel.com/402/201/"
+                                               Grid.Column="1" />
+
+                                        <BoxView Grid.Row="1"
+                                                 Margin="10,0"
+                                                 Grid.ColumnSpan="2"
+                                                 HeightRequest="0.5"
+                                                 BackgroundColor="Gray" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </RefreshView>
+                    <ListView Grid.Column="1"
+                              IsPullToRefreshEnabled="True"
+                              HasUnevenRows="True"
+                              ItemsSource="{Binding Points}"
+                              Grid.Row="1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+
+                                        </Grid.RowDefinitions>
+                                        <Label Text="{Binding .}"
+                                               FontSize="Large" />
+                                        <Image Source="https://lorempixel.com/402/201/"
+                                               Grid.Column="1" />
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <RefreshView Grid.Column="2"
+                                 Grid.Row="1">
+
+                        <ScrollView>
+                            <StackLayout BindableLayout.ItemsSource="{Binding Points}">
+                                <BindableLayout.ItemTemplate>
                                     <DataTemplate>
                                         <Grid RowSpacing="0">
                                             <Grid.RowDefinitions>
@@ -184,182 +419,233 @@
                                                      BackgroundColor="Gray" />
                                         </Grid>
                                     </DataTemplate>
-                                </CollectionView.ItemTemplate>
-                            </CollectionView>
-                        </RefreshView>
-                        <ListView Grid.Column="1"
-                                  IsPullToRefreshEnabled="True"
-                                  HasUnevenRows="True"
-                                  ItemsSource="{Binding Points}"
-                                  Grid.Row="1">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*" />
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </ScrollView>
+                    </RefreshView>
 
-                                            </Grid.RowDefinitions>
-                                            <Label Text="{Binding .}"
-                                                   FontSize="Large" />
-                                            <Image Source="https://lorempixel.com/402/201/"
-                                                   Grid.Column="1" />
-
-                                        </Grid>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                        <RefreshView Grid.Column="2"
-                                     Grid.Row="1">
-
-                            <ScrollView>
-                                <StackLayout BindableLayout.ItemsSource="{Binding Points}">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <Grid RowSpacing="0">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="*" />
-                                                    <RowDefinition Height="Auto" />
-
-                                                </Grid.RowDefinitions>
-                                                <Label Text="{Binding .}"
-                                                       FontSize="Large" />
-                                                <Image Source="https://lorempixel.com/402/201/"
-                                                       Grid.Column="1" />
-
-                                                <BoxView Grid.Row="1"
-                                                         Margin="10,0"
-                                                         Grid.ColumnSpan="2"
-                                                         HeightRequest="0.5"
-                                                         BackgroundColor="Gray" />
-                                            </Grid>
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
-                            </ScrollView>
-                        </RefreshView>
-
-                    </Grid>
-                </Frame>
+                </Grid>
             </DataTemplate>
             <DataTemplate x:Key="titleTemplate">
-                <Frame Visual="Material"
-                       Margin="20"
-                       CornerRadius="20"
-                       HasShadow="True">
-                    <Grid Margin="5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Label Text="{Binding Title}"
-                               FontSize="Title"
-                               HorizontalTextAlignment="Center" />
-                        <Label Text="{Binding SubTitle}"
-                               Grid.Row="1"
-                               FontSize="Subtitle"
-                               HorizontalTextAlignment="Center" />
-                    </Grid>
-                </Frame>
+
+                <Grid Padding="50,0,0,0"
+                      RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Title}"
+                           Style="{StaticResource TitleStyle}"
+                           Grid.Row="1" />
+                    <Label Text="{Binding SubTitle}"
+                           FontAttributes="Italic"
+                           Grid.Row="2"
+                           Style="{StaticResource SubtitleStyle}" />
+                    <Label Text="Lachlan Gordon"
+                           Grid.Row="4"
+                           Style="{StaticResource SubtitleStyle}" />
+                </Grid>
             </DataTemplate>
             <DataTemplate x:Key="pointsTemplate">
-                <Frame Visual="Material"
-                       Margin="20"
-                       CornerRadius="20"
-                       HasShadow="True">
-                    <Grid Margin="5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Label Text="{Binding Title}"
-                               FontSize="Title"
-                               HorizontalTextAlignment="Center" />
-                        <Label Text="{Binding SubTitle}"
-                               Grid.Row="1"
-                               FontSize="Subtitle"
-                               HorizontalTextAlignment="Center" />
-                        <Image Source="{Binding Image}"
-                               Grid.Row="2"
-                               Aspect="AspectFill"
-                               Grid.Column="1" />
-                        <ScrollView Grid.Row="2">
-                            <StackLayout BindableLayout.ItemsSource="{Binding Points}">
+
+                <Grid Margin="20"
+                      Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Title}"
+                           HorizontalTextAlignment="Start"
+                           Style="{StaticResource HeadingStyle}" />
+                    <Label Text="{Binding SubTitle}"
+                           Grid.Row="1"
+                           FontSize="Subtitle"
+                           HorizontalTextAlignment="Center" />
+                    <ListView SeparatorColor="Black"
+                              BackgroundColor="White"
+                              ItemsSource="{Binding Points}"
+                              Grid.Row="2"
+                              Grid.Column="1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell >
+                                    <Label Text=""/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                    <ScrollView Grid.Row="2">
+                        <StackLayout BindableLayout.ItemsSource="{Binding Points}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Text="{Binding .}"
+                                           Style="{StaticResource BulletStyle}" />
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </StackLayout>
+                    </ScrollView>
+
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="horizontalCollectionTemplate">
+
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding Title}"
+                           FontSize="Title"
+                           Style="{StaticResource TitleStyle}"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding Subtitle}"
+                           Grid.Row="1"
+                           Style="{StaticResource SubtitleStyle}"
+                           HorizontalTextAlignment="Center" />
+                            <StackLayout x:Name="StackForHorizontal"
+                                         BindableLayout.ItemsSource="{Binding Points}">
                                 <BindableLayout.ItemTemplate>
                                     <DataTemplate>
-                                        <Label Text="{Binding ., StringFormat=' - {0}'}"
-                                               FontSize="Subtitle" />
+                                        <CollectionView BackgroundColor="Aqua"
+                                                        HeightRequest="100"
+                                                        ItemsSource="{Binding Source={x:Reference StackForHorizontal}, Path=BindingContext.Points}">
+                                            <CollectionView.ItemsLayout>
+                                                <LinearItemsLayout Orientation="Horizontal" />
+                                            </CollectionView.ItemsLayout>
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+
+                                                        <BoxView BackgroundColor="Red"
+                                                                 Margin="10"
+                                                                 WidthRequest="200"
+                                                                 HeightRequest="300"
+                                                                 CornerRadius="20">
+                                                        </BoxView>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+
+                                        </CollectionView>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+
+
+                </Grid>
+            </DataTemplate>
+            <DataTemplate x:Key="listTemplate">
+
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding Title}"
+                           FontSize="Title"
+                           Style="{StaticResource TitleStyle}"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding Subtitle}"
+                           Grid.Row="1"
+                           Style="{StaticResource SubtitleStyle}"
+                           HorizontalTextAlignment="Center" />
+                    <RefreshView  Grid.Row="2">
+                        <ScrollView>
+
+                            <StackLayout x:Name="TheStack"
+                                         BindableLayout.ItemsSource="{Binding Points}">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <CollectionView BackgroundColor="Aqua"
+                                                        HeightRequest="100"
+                                                        ItemsSource="{Binding Source={x:Reference TheStack}, Path=BindingContext.Points}">
+                                            <CollectionView.ItemsLayout>
+                                                <LinearItemsLayout Orientation="Horizontal" />
+                                            </CollectionView.ItemsLayout>
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+
+                                                        <BoxView BackgroundColor="Red"
+                                                                 Margin="10"
+                                                                 WidthRequest="200"
+                                                                 HeightRequest="300"
+                                                                 CornerRadius="20">
+                                                        </BoxView>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+
+                                        </CollectionView>
                                     </DataTemplate>
                                 </BindableLayout.ItemTemplate>
                             </StackLayout>
                         </ScrollView>
 
-                    </Grid>
-                </Frame>
-            </DataTemplate>
-            <DataTemplate x:Key="horizontalCollectionTemplate">
-                <Frame Visual="Material"
-                       Margin="20"
-                       CornerRadius="20"
-                       HasShadow="True">
-                    <Grid Margin="5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Label Text="{Binding Title}"
-                               FontSize="Title"
-                               HorizontalTextAlignment="Center" />
-                        <Label Text="{Binding SubTitle}"
-                               Grid.Row="1"
-                               FontSize="Subtitle"
-                               HorizontalTextAlignment="Center" />
-                        <RefreshView  Grid.Row="2">
-                            <ScrollView>
+                    </RefreshView>
 
-                                <StackLayout x:Name="TheStack"
-                                             BindableLayout.ItemsSource="{Binding Points}">
-                                    <BindableLayout.ItemTemplate>
-                                        <DataTemplate>
-                                            <CollectionView BackgroundColor="Aqua"
-                                                            HeightRequest="100"
-                                                            ItemsSource="{Binding Source={x:Reference TheStack}, Path=BindingContext.Points}">
-                                                <CollectionView.ItemsLayout>
-                                                    <LinearItemsLayout Orientation="Horizontal" />
-                                                </CollectionView.ItemsLayout>
-                                                <CollectionView.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Grid>
-
-                                                            <BoxView BackgroundColor="Red"
-                                                                     Margin="10"
-                                                                     WidthRequest="200"
-                                                                     HeightRequest="300"
-                                                                     CornerRadius="20">
-                                                            </BoxView>
-                                                        </Grid>
-                                                    </DataTemplate>
-                                                </CollectionView.ItemTemplate>
-
-                                            </CollectionView>
-                                        </DataTemplate>
-                                    </BindableLayout.ItemTemplate>
-                                </StackLayout>
-                            </ScrollView>
-
-                        </RefreshView>
-
-                    </Grid>
-                </Frame>
+                </Grid>
             </DataTemplate>
             <converters:SlideTemplateSelector x:Key="slideDataTemplateSelector"
                                               ListTemplate="{StaticResource listTemplate}"
+                                              ComparisonTemplate="{StaticResource comparisonTemplate}"
+                                              GridTemplate="{StaticResource gridTemplate}"
                                               PointsTemplate="{StaticResource pointsTemplate}"
                                               TitleTemplate="{StaticResource titleTemplate}"
                                               HorizontalCollectionTemplate="{StaticResource horizontalCollectionTemplate}" />
+            <Style x:Key="LabelStyle"
+                   TargetType="Label">
+
+
+                <Setter Property="FontSize"
+                        Value="Large" />
+                <Setter Property="FontFamily"
+                        Value="Avenir" />
+                <Setter Property="TextColor"
+                        Value="White" />
+            </Style>
+            <Style x:Key="BulletStyle"
+                   BasedOn="{StaticResource LabelStyle}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="40" />
+            </Style>
+            <Style x:Key="TitleStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="FontSize"
+                        Value="60" />
+            </Style>
+            <Style x:Key="HeadingStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="FontSize"
+                        Value="40" />
+                <Setter Property="Margin"
+                        Value="10,0" />
+            </Style>
+            <Style x:Key="SubtitleStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="FontSize"
+                        Value="40" />
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 

@@ -7,5 +7,46 @@
     mc:Ignorable="d"
     x:Class="CollectionViewUpgrade.App">
     <Application.Resources>
+        <ResourceDictionary>
+
+         <Style x:Key="LabelStyle"
+                   TargetType="Label">
+
+
+                <Setter Property="FontSize"
+                        Value="Large" />
+                <Setter Property="FontFamily"
+                        Value="Avenir" />
+                <Setter Property="TextColor"
+                        Value="White" />
+            </Style>
+            <Style x:Key="BulletStyle"
+                   BasedOn="{StaticResource LabelStyle}"
+                   TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="40" />
+            </Style>
+            <Style x:Key="TitleStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="FontSize"
+                        Value="60" />
+            </Style>
+            <Style x:Key="HeadingStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="FontSize"
+                        Value="40" />
+                <Setter Property="Margin"
+                        Value="10,0" />
+            </Style>
+            <Style x:Key="SubtitleStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="FontSize"
+                        Value="40" />
+            </Style>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

@@ -1,77 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Shell
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    xmlns:local="clr-namespace:CollectionViewUpgrade.Views"
-    Title="CollectionViewUpgrade"
-    FlyoutBehavior="Disabled"
-    x:Class="CollectionViewUpgrade.AppShell">
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       mc:Ignorable="d"
+       xmlns:local="clr-namespace:CollectionViewUpgrade.Views"
+       Title="CollectionViewUpgrade"
+       FlyoutBehavior="Disabled"
+       x:Class="CollectionViewUpgrade.AppShell">
     <!-- 
         Styles and Resources 
     -->
     <Shell.Resources>
         <ResourceDictionary>
-            <Color
-                x:Key="NavigationPrimary">#2196F3</Color>
-            <Style
-                x:Key="BaseStyle"
-                TargetType="Element">
-                <Setter
-                    Property="Shell.BackgroundColor"
-                    Value="{StaticResource NavigationPrimary}" />
-                <Setter
-                    Property="Shell.ForegroundColor"
-                    Value="White" />
-                <Setter
-                    Property="Shell.TitleColor"
-                    Value="White" />
-                <Setter
-                    Property="Shell.DisabledColor"
-                    Value="#B4FFFFFF" />
-                <Setter
-                    Property="Shell.UnselectedColor"
-                    Value="#95FFFFFF" />
-                <Setter
-                    Property="Shell.TabBarBackgroundColor"
-                    Value="{StaticResource NavigationPrimary}" />
-                <Setter
-                    Property="Shell.TabBarForegroundColor"
-                    Value="White" />
-                <Setter
-                    Property="Shell.TabBarUnselectedColor"
-                    Value="#95FFFFFF" />
-                <Setter
-                    Property="Shell.TabBarTitleColor"
-                    Value="White" />
+            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Style x:Key="BaseStyle"
+                   TargetType="Element">
+                <Setter Property="Shell.BackgroundColor"
+                        Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.ForegroundColor"
+                        Value="White" />
+                <Setter Property="Shell.TitleColor"
+                        Value="White" />
+                <Setter Property="Shell.DisabledColor"
+                        Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor"
+                        Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor"
+                        Value="{StaticResource NavigationPrimary}" />
+                <Setter Property="Shell.TabBarForegroundColor"
+                        Value="White" />
+                <Setter Property="Shell.TabBarUnselectedColor"
+                        Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarTitleColor"
+                        Value="White" />
             </Style>
-            <Style
-                TargetType="TabBar"
-                BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="TabBar"
+                   BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
     <!-- Your Pages -->
     <TabBar>
-        <Tab
-            Title="Presentation"
-            Icon="tab_about.png">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:PresentationCarouselPage}" />
+        <Tab Title="Presentation"
+             Icon="tab_about.png">
+            <ShellContent ContentTemplate="{DataTemplate local:PresentationCarouselPage}" />
         </Tab>
-        <Tab
-            Title="List"
-            Icon="tab_feed.png">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <!--<Tab Title="Grid">
+            <ContentPage>
+                <ContentPage.Content>
+                    <Grid>
+                        <CollectionView>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid HeightRequest="300"
+                                          WidthRequest="100">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding .}" />
+                                        <BoxView Color="Aqua"
+                                                 HeightRequest="300"
+                                                 Grid.Column="1" />
+                                        <Image Grid.Row="1"
+                                               Source="https://picsum.photos/200/300" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            <CollectionView.ItemsLayout>
+                                <GridItemsLayout Span="2"
+                                                 Orientation="Vertical"></GridItemsLayout>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>In the beginning there was ListView</x:String>
+                                    <x:String>and it was good</x:String>
+                                    <x:String></x:String>
+                                    <x:String>.......But...</x:String>
+                                    <x:String></x:String>
+                                    <x:String>it could only do vertical</x:String>
+                                    <x:String>It couldn't do multiple columns</x:String>
+                                    <x:String>Some things only work with one CachingStrategy</x:String>
+                                    <x:String>some times it would crash on every XF Update</x:String>
+                                    <x:String>sometimes it was slow</x:String>
+                                    <x:String></x:String>
+                                    <x:String>So we all also kinda hated it</x:String>
+                                </x:Array>
+                            </CollectionView.ItemsSource>
+
+                        </CollectionView>
+                    </Grid>
+                </ContentPage.Content>
+            </ContentPage>
+        </Tab>-->
+
+        <Tab Title="List"
+             Icon="tab_feed.png">
+            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </Tab>
-        <Tab
-            Title="About"
-            Icon="tab_about.png">
-            <ShellContent
-                ContentTemplate="{DataTemplate local:AboutPage}" />
+        <Tab Title="About"
+             Icon="tab_about.png">
+            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
+        <Tab Title="Horizontal">
+            <ContentPage>
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding Title}"
+                           FontSize="Title"
+                           Style="{StaticResource TitleStyle}"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding Subtitle}"
+                           Grid.Row="1"
+                           Style="{StaticResource SubtitleStyle}"
+                           HorizontalTextAlignment="Center" />
+                    <StackLayout x:Name="StackForHorizontal"
+                                >
+                        <BindableLayout.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>In the beginning there was ListView</x:String>
+                                    <x:String>and it was good and we loved it</x:String>
+                                    <x:String></x:String>
+                                    <x:String>.......But...</x:String>
+                                    <x:String></x:String>
+                                    <x:String>it could only do vertical</x:String>
+                                    <x:String>It couldn't do multiple columns</x:String>
+                                    <x:String>Some things only work with one CachingStrategy</x:String>
+                                    <x:String>some times it would crash on every XF Update</x:String>
+                                    <x:String>sometimes it was slow</x:String>
+                                    <x:String></x:String>
+                                    <x:String>So we all also kinda hated it</x:String>
+                                </x:Array>
+                            </BindableLayout.ItemsSource>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <CollectionView BackgroundColor="Aqua"
+                                                HeightRequest="100"
+                                                ItemsSource="{Binding Source={x:Reference StackForHorizontal}, Path=BindingContext.Points}">
+                                    <CollectionView.ItemsLayout>
+                                        <LinearItemsLayout Orientation="Horizontal" />
+                                    </CollectionView.ItemsLayout>
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+
+                                                <BoxView BackgroundColor="Red"
+                                                         Margin="10"
+                                                         WidthRequest="200"
+                                                         HeightRequest="300"
+                                                         CornerRadius="20">
+                                                </BoxView>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                    <CollectionView.ItemsSource>
+                                        <x:Array Type="{x:Type x:String}">
+                                            <x:String>In the beginning there was ListView</x:String>
+                                            <x:String>and it was good</x:String>
+                                            <x:String></x:String>
+                                            <x:String>.......But...</x:String>
+                                            <x:String></x:String>
+                                            <x:String>it could only do vertical</x:String>
+                                            <x:String>It couldn't do multiple columns</x:String>
+                                            <x:String>Some things only work with one CachingStrategy</x:String>
+                                            <x:String>some times it would crash on every XF Update</x:String>
+                                            <x:String>sometimes it was slow</x:String>
+                                            <x:String></x:String>
+                                            <x:String>So we all also kinda hated it</x:String>
+                                        </x:Array>
+                                    </CollectionView.ItemsSource>
+                                </CollectionView>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+
+
+                </Grid>
+            </ContentPage>
+        </Tab>
+
     </TabBar>
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
