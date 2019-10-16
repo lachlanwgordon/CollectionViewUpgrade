@@ -40,6 +40,15 @@
                 <Setter Property="Margin"
                         Value="10,0" />
             </Style>
+            <Style x:Key="MiniHeadingStyle"
+                   TargetType="Label"
+                   BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="FontSize"
+                        Value="35" />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="Margin"
+                        Value="10,0" />
+            </Style>
             <Style x:Key="SubtitleStyle"
                    TargetType="Label"
                    BasedOn="{StaticResource LabelStyle}">
